@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+    * {
+      font-family: "Roboto", sans-serif;
+    }
+  </style>
+  <body>
+    <nav
+      class="flex flex-col sm:flex-row justify-between p-4 items-center px-1 sm:px-4"
+    >
+      <div class="flex items-center justify-center sm:justify-start">
+        <img class="size-10" src="imgs/logo.png" alt="" />
+        <h1 class="font-bold text-2xl">Eastate</h1>
+      </div>
+      <div class="flex items-center mt-2 sm:mt-0">
+        <a class="text-sm sm:text-md mx-1 border-b-2 py-1 px-2" href="">About Us</a>
+        <a class="text-sm sm:text-md mx-1 hover:border-b-2 py-1 px-2" href="">Property</a>
+        <a class="text-sm sm:text-md mx-1 hover:border-b-2 py-1 px-2" href="">Agent</a>
+        <a
+          class="text-sm sm:text-md mx-1 bg-black text-white py-1 sm:py-2 px-3 sm:px-5 rounded-3xl hover:bg-gray-800"
+          href=""
+          >Contact Us</a
+        >
+      </div>
+    </nav>
+
+    <!-- hero section  -->
+    <section id="hero" class="px-2 sm:px-8">
+      <div
+        class="h-[100vh] md:h-[90vh] mt-5 flex justify-center items-center rounded-2xl bg-[url(/imgs/home_bg.jpg)] bg-center bg-no-repeat bg-cover"
+      >
+        <div class="">
+          <h1 class="tracking-wide text-2xl font-bold md:text-6xl lg:text-7xl text-center text-white">
+            Journey To Your Perfect Home
+          </h1>
+          <p class="px-5 md:px-2 text-sm md:text-md lg:text-xl text-center my-3 md:my-7 text-white">
+            Let our expert team guide you through the magic of real estate and
+            helping you find the <br class="hidden md:block" />
+            prefect home where your dreams take flight
+          </p>
+          <div class="px-5 mt-5 md:mt-3">
+            <div class="btns ms-[2px] mb-[5.6px]">
+              <form action="">
+                <input class="hidden" id="buy" type="radio" >
+                <label for="buy" class="bg-white text-black mx-[-2px] py-2 px-7 rounded-tl-xl">Buy</label>
+                <input class="hidden" id="rent" type="radio" >
+                <label for="rent" class="bg-neutral-500 mx-[-2px] py-2 px-6 text-white">Rent</label>
+                <input class="hidden" id="sell" type="radio" >
+                <label for="sell" class="bg-neutral-500 mx-[-2px] py-2 px-6 rounded-tr-xl text-white">Sell</label>
+              </form>
+            </div>
+            <div class="grid grid-rows md:grid-cols-3 bg-white rounded-xl rounded-tl-none py-4 px-4">
+              <div class="px-3 py-3 md:py-0 mb-4 md:mb-0 border-b-2 md:border-b-0 md:border-r relative">
+                <p class="font-medium">Property Type</p>
+                <button type="button" id="menu_button" aria-expanded="true" aria-haspopup="true">Select Property Type <i class="ms-1 fa-solid fa-caret-down"></i></button>
+
+                <!-- dropdown  -->
+                 <div id="select_drop" class="hidden absolute right-0 z-10 mt-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden">
+                  <div class="py-1" role="none">
+                    <!-- Active: "bg-gray-100 text-gray-900 outline-hidden", Not Active: "text-gray-700" -->
+                    <a href="#" class="block hover:bg-gray-100 px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">Agriculture</a>
+                    <a href="#" class="block hover:bg-gray-100 px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-1">Brownfield redevelopment</a>
+                    <a href="#" class="block hover:bg-gray-100 px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-2">Commercial Land</a>
+                    <a href="#" class="block hover:bg-gray-100 px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-2">Government land</a>
+                  </div>
+                </div>
+                <!-- dropdown  -->
+
+              </div>
+              <div class="px-3 py-3 md:py-0 mb-4 md:mb-0 border-b-2 md:border-b-0 md:border-r">
+                <p class="font-medium">Location</p>
+                <span>eg.England, Ireland </span>
+              </div>
+              <div class="px-3 py-3 md:py-0 mb-4 md:mb-0 md:flex justify-between items-center">
+                <div>
+                  <p class="font-medium">Price Range</p>
+                  <span>Min.Price - Max.Price</span>
+                </div>
+                <button class="py-2 px-5 bg-black text-white hover:bg-gray-500 rounded-xl mt-2 sm:mt-0">
+                  Search
+                </button>
+              </div>
+            </div>
+
+            <div class="text-center mt-4 flex justify-center items-start md:items-center ">
+              <span class="font-medium me-2 text-white">Popular Search : </span>
+              <div>
+                <a href="" class=" mb-2 md:mb-0 block md:inline bg-gray-200 text-black py-1 px-4 rounded-xl mx-2">Resident House</a>
+                <a href="" class=" mb-2 md:mb-0 block md:inline bg-gray-200 text-black py-1 px-4 rounded-xl mx-2">Studio Apartment</a>
+                <a href="" class=" mb-2 md:mb-0 block md:inline bg-gray-200 text-black py-1 px-4 rounded-xl mx-2">Country Side</a>
+                <a href="" class=" mb-2 md:mb-0 block md:inline bg-gray-200 text-black py-1 px-4 rounded-xl mx-2">Farmland House</a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- trusted section  -->
+     <section id="trusted" class="px-5 lg:px-20 mt-20 sm:mt-40">
+      <div class="flex flex-col lg:flex-row justify-between items-center">
+        <h1 class="tracking-wide mb-5 lg:mb-1 text-center lg:text-start text-2xl md:text-6xl text-black font-bold lg:leading-19">Your Trusted Real <br class="hidden lg:block"> Estate Advisors</h1>
+        <p class="font-medium text-medium text-sm lg:text-lg text-center lg:text-justify tracking-wide">A cutting-edge real estate agent that offers a seamless <br class="hidden lg:block">
+          and immersive experience for finding your dream home in <br class="hidden lg:block"> the heart of the city
+        </p>
+      </div>
+      <div class="flex flex-col lg:flex-row mt-10 md:mt-20 items-center">
+        <div class="lg:w-[50%] grid grid-cols-2 lg:me-5 lg:mb-0 mb-10">
+          <div class="p-4 md:p-11 md:mb-3 md:mx-3 m-1 bg-gray-50 rounded-2xl shadow-sm">
+            <h1 class="text-2xl md:text-5xl font-bold md:mb-4">17K+</h1>
+            <p class="text-xs">Satisfied Customers</p>
+          </div>
+          <div class=" p-4 md:p-11 md:mb-3 md:mx-3 m-1 bg-black text-white rounded-2xl shadow-sm">
+            <h1 class="text-2xl md:text-5xl font-bold md:mb-4">25+</h1>
+            <p class="text-xs">Years of Experience</p>
+          </div>
+          <div class=" p-4 md:p-11 md:mx-3 m-1 bg-gray-50 rounded-2xl shadow-sm">
+            <h1 class="text-2xl md:text-5xl font-bold md:mb-4">150+</h1>
+            <p class="text-xs">Award Winning</p>
+          </div>
+          <div class=" p-4 md:p-11 md:mx-3 m-1 bg-gray-50 rounded-2xl shadow-sm">
+            <h1 class="text-2xl md:text-5xl font-bold md:mb-4">25+</h1>
+            <p class="text-xs">Property Collections</p>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row lg:w-[50%] bg-gray-100 p-6 rounded-2xl">
+          <div class="pe-5 min-h-full relative">
+            <p class="tracking-wide mb-4 md:mb-0 md:text-xl font-medium md:text-justify text-center">We have witnessed the ever evolving landscape of the real estate market and become a trusted partner by thousands of clients</p>
+            <img class="size-20 absolute bottom-0 hidden md:block" src="imgs/round.png" alt="">
+          </div>
+          <img class="w-full md:w-[50%] rounded-xl" src="imgs/trusted.jpg" alt="">
+        </div>
+      </div>
+     </section>
+
+     <!-- discover section  -->
+     <section id="discover" class="px-5 md:px-10 xl:px-50 mt-20 sm:mt-40">
+        <h1 class="text-2xl md:text-5xl font-bold text-center mb-10">Discover Your Perfect Property Match</h1>
+        <div class=" md:flex">
+          <div class="group overflow-hidden md:w-[50%] w-full me-5 h-[40vh] md:h-[83vh] rounded-2xl p-4 relative bg-[url(/imgs/discover01.jpg)] bg-center bg-no-repeat bg-cover">
+            <i class="fa-regular fa-heart float-end bg-white p-3 rounded-full hover:text-red-500"></i>
+            <div class="absolute duration-500 ease-out md:group-hover:bottom-4 bottom-4 md:bottom-[-150px] bg-gray-900 text-white rounded-xl p-3 md:p-4 shadow-lg">
+              <div class="w-full flex justify-between ">
+                <h1 class="text-2xl mb-5">$1,200,000</h1>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span>21 Gorham Road <br> Belmont, MA 02478</span>
+                <div class="flex items-center">
+                  <div class="border-e-1 text-center px-2 md:px-4">
+                    2.169 <br> Sq.Ft
+                  </div>
+                  <div class="border-e-1 text-center px-2 md:px-4">
+                    3 <br> Beds
+                  </div>
+                  <div class="text-center px-2 md:px-4">
+                    2 <br> Bath
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-[50%] h-[80vh] mt-5 md:mt-0" >
+            <div class="group overflow-hidden w-full me-5 h-[50%] rounded-2xl p-4 relative bg-[url(/imgs/discover02.jpg)] bg-center bg-no-repeat bg-cover">
+              <i class="fa-regular fa-heart float-end bg-white p-3 rounded-full hover:text-red-500"></i>
+              <div class="absolute duration-500 ease-out md:group-hover:bottom-4 bottom-4 md:bottom-[-150px] bg-gray-900 text-white rounded-xl p-3 md:p-4 shadow-lg">
+                <div class="w-full flex justify-between">
+                  <h1 class="text-2xl mb-5">$1,000,000</h1>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </div>
+                <div class="flex justify-between items-center text-xs">
+                  <span>21 Gorham Road <br> Belmont, MA 02478</span>
+                  <div class="flex items-center">
+                    <div class="border-e-1 text-center px-2 md:px-4">
+                      2.169 <br> Sq.Ft
+                    </div>
+                    <div class="border-e-1 text-center px-2 md:px-4">
+                      3 <br> Beds
+                    </div>
+                    <div class="text-center px-2 md:px-4">
+                      2 <br> Bath
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex h-full mt-5">
+                <div class="group overflow-hidden w-[50%] me-5 h-[50%] rounded-2xl p-2 relative bg-[url(/imgs/discover03.jpg)] bg-center bg-no-repeat bg-cover">
+                  <i class="fa-regular fa-heart float-end bg-white p-3 rounded-full hover:text-red-500"></i>
+                  <div class="absolute duration-500 ease-out md:group-hover:bottom-4 bottom-4 md:bottom-[-150px] bg-gray-900 text-white rounded-xl p-3 md:p-4 shadow-lg">
+                    <div class="w-full flex items-center">
+                      <h1 class="text-md me-10">$800,000</h1>
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="group overflow-hidden w-[50%] h-[50%] rounded-2xl p-4 relative bg-[url(/imgs/discover04.jpg)] bg-center bg-no-repeat bg-cover">
+                  <i class="fa-regular fa-heart float-end bg-white p-3 rounded-full hover:text-red-500"></i>
+                  <div class="absolute duration-500 ease-out md:group-hover:bottom-4 bottom-4 md:bottom-[-150px] bg-gray-900 text-white rounded-xl p-3 md:p-4 shadow-lg">
+                    <div class="w-full flex items-center">
+                      <h1 class="text-md me-10">$950,000</h1>
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+     </section>
+
+     <!-- internetional section  -->
+      <section id="inter" class="px-5 mt-30">
+          <div class="pt-15 text-center bg-[url(/imgs/international.jpg)] w-full h-[50vh] bg-no-repeat bg-center bg-cover text-white rounded-2xl">
+            <h1 class="text-xl font-medium mb-3">International Property Network</h1>
+              <p class="text-sm">Our global reach opens doors to exclusive properties and provides you the <br class="hidden md:block"> international real estate landscape</p>
+          </div>
+      </section>
+
+      <!-- review section  -->
+      <section id="review">
+        <div class="px-5 mt-30">
+          <div class="text-center mb-15">
+            <h1 class="text-xl font-medium mb-3 md:text-5xl">Dont Trust Us, Turst Their Voice</h1>
+            <p class="text-xs">Discover heartfelt accounts of joy and fulfillment as our valused clients embark on
+              the quest for their dream homes and prime investments
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 md:px-10 lg:px-23">
+            <div class="mx-2 p-5 pt-13 bg-gray-100 rounded-2xl relative mb-15 md:col-span-2">
+              <img src="imgs/profile02.png" class="size-13 rounded-full absolute top-[-13%] left-15" alt="">
+              <p class="text-sm lg:text-xl text-justify mb-3 text-gray-600">
+                Choosing this real estate service was the best decision i ever mad. 
+                Their Expert negotiation skills helped me sell my property at a greate price in no time. i would definitely work with them again.
+                
+              </p>
+              <div class="flex justify-between items-center">
+                <p class="text-md font-medium">Louis Podtrige<br> 
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star-half-stroke text-yellow-500"></i>
+                </p>
+                <i class="fa-solid fa-quote-left text-6xl text-gray-200"></i>
+              </div>
+            </div>
+            <div class="mx-2 p-5 pt-13 bg-gray-100 rounded-2xl relative mb-15 md:col-span-1">
+              <img src="imgs/profile01.png" class="size-13 rounded-full absolute top-[-13%] left-15" alt="">
+              <p class="text-sm lg:text-xl text-justify mb-3 text-gray-600">
+                Their team demonstrated exceptional professionalism and expertise. I highly recommend their
+                services to anyone!
+              </p>
+              <div class="flex justify-between items-center">
+                <p class="text-md font-medium">Rachel Hodid <br> 
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                </p>
+                <i class="fa-solid fa-quote-left text-6xl text-gray-200"></i>
+              </div>
+            </div>
+            <div class="mx-2 p-5 pt-13 bg-gray-100 rounded-2xl relative mb-15 md:col-span-1">
+              <img src="imgs/profile03.png" class="size-13 rounded-full absolute top-[-13%] left-15" alt="">
+              <p class="text-sm lg:text-xl text-justify mb-3 text-gray-600">
+                They patiently answered all our questions, provided valuable insights and helped us secure our dream home within our budget
+              </p>
+              <div class="flex justify-between items-center">
+                <p class="text-md font-medium">Anastasia Baldwin <br> 
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                </p>
+                <i class="fa-solid fa-quote-left text-6xl text-gray-200"></i>
+              </div>
+            </div>
+            <div class="mx-2 p-5 pt-13 bg-gray-100 rounded-2xl relative mb-15 md:col-span-2">
+              <img src="imgs/profile04.png" class="size-13 rounded-full absolute top-[-13%] left-15" alt="">
+              <p class="text-sm lg:text-xl text-justify mb-3 text-gray-600">
+                They presented us with a stunning selection of homes that perfectly matched our preferences. The team's attention to detail and in-depth knowledge of the local market truly impressed us!
+              </p>
+              <div class="flex justify-between items-center">
+                <p class="text-md font-medium">Harry Jenda<br> 
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                  <i class="fa-solid fa-star text-yellow-500"></i>
+                </p>
+                <i class="fa-solid fa-quote-left text-6xl text-gray-200"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="px-3 py-6 lg:px-20">
+        <div class="bg-gray-800 text-white px-5 rounded-2xl pb-5">
+          <div class="px-2 py-6 border-b mb-15">
+            <h1 class="text-xl mb-3 md:text-4xl">Ready to Work With Us?</h1>
+            <p class="text-xs md:text-lg">Experience top-noth customer service and let us guide you on your property journey</p>
+          </div>
+
+          <div class="grid md:grid-cols-9 mt-5 px-2">
+            <div class="lg:col-span-6 md:col-span-9">
+                <div class="flex items-center">
+                  <img src="imgs/logo.png" alt="" class="size-10 rounded-full me-1">
+                  <h1 class="text-lg md:text-3xl font-medium">Eastate</h1>
+                </div>
+                <p class="text-xs md:text-sm my-4">
+                  A cutting-edge real estate agent that <br class="lg:block hidden"> offers a seamiess and immersive <br class="lg:block hidden"> experience for finding your dream home
+                </p>
+                <div class="mt-3 border-1 p-3 items-center rounded-xl md:w-100">
+                    <form action="" class="flex justify-between items-center">
+                      <input type="text" class="border-none outline-none" placeholder="Write Your email here">
+                      <button type="submit" class="rounded-xl bg-yellow-600 py-2 px-3 relative">
+                        <span class="hidden md:inline-block">Submit</span> <i class="fa-solid fa-circle-arrow-right"></i>
+                      </button>
+                    </form>
+                </div>
+            </div>
+            <div class="lg:col-span-1 md:col-span-3 mt-6">
+              <ul>
+                <li class="font-bold mb-3">Home</li>
+                <li class="mb-1"><a class="hover:text-yellow-600" href="">About Us</a></li>
+                <li class="mb-1"><a class="hover:text-yellow-600" href="">Collection</a></li>
+                <li class="mb-1"><a class="hover:text-yellow-600" href="">Blog & News</a></li>
+              </ul>
+            </div>
+            <div class="lg:col-span-1 md:col-span-3 mt-6">
+              <ul>
+                <li class="font-bold mb-3">Security</li>
+                <li class="mb-1"><a class="hover:text-yellow-600" href="">Privacy Policy</a></li>
+                <li class="mb-1"><a class="hover:text-yellow-600" href="">User Agreements</a></li>
+                <li class="mb-1"><a class="hover:text-yellow-600" href="">Copyright</a></li>
+              </ul>
+            </div>
+            <div class="lg:col-span-1 md:col-span-3 mt-6">
+              <ul>
+                <li class="font-bold mb-3">Social Media</li>
+                <li class="mb-1"><a class="hover:text-yellow-600" href="">Instagram</a></li>
+                <li class="mb-1"><a class="hover:text-yellow-600" href="">Facebook</a></li>
+                <li class="mb-1"><a class="hover:text-yellow-600" href="">Twitter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        
+      </footer>
+
+      <script>
+        document.querySelector('#menu_button').addEventListener('click', function(){
+          document.querySelector('#select_drop').classList.toggle('hidden');
+        })
+      </script>
+
+  </body>
+</html>
